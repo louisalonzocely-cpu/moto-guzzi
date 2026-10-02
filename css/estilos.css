@@ -3,3 +3,18 @@
    Estilos PROPIOS. Se cargan después de Bootstrap para poder
    ajustar su aspecto sin modificar los archivos de Bootstrap.
    ============================================================ */
+
+/* Tarjetas de categorías: altura fija para que las 3 queden iguales */
+.categoria {
+    height: 420px;
+    background-color: var(--bs-white);
+}
+
+/* Las fotos son de producto sobre fondo blanco y no todas tienen el mismo
+   formato: con contain se ve la moto completa y sin bordes blancos marcados */
+.categoria .card-img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: contain;
+}
