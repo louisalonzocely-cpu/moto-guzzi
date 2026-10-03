@@ -53,8 +53,9 @@
                       <li class="nav-item"><a href="#suscripcion" class="nav-link">Contacto</a></li>
                   </ul>
                   <button class="btn btn-outline-dark position-relative" type="button"
-                          data-bs-toggle="offcanvas" data-bs-target="#panelCarrito"
-                          aria-controls="panelCarrito">
+                      data-bs-toggle="offcanvas" data-bs-target="#panelCarrito"
+                      aria-controls="panelCarrito"
+                      data-bs-title="Ver carrito" data-bs-placement="bottom">
                       <i class="bi bi-bag"></i> Carrito
                       <span class="position-absolute top-0 start-100 translate-middle
                             badge rounded-pill text-bg-danger" id="contadorCarrito">0</span>
@@ -546,6 +547,12 @@
             </div>
         </div>
    </div>
+
+   <!-- ===== BOTÓN VOLVER ARRIBA ===== -->
+   <button type="button" id="btnArriba" class="btn btn-coral rounded-circle shadow position-fixed bottom-0 start-0 m-4
+        d-none" aria-label="Volver arriba" data-bs-title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+  </button>
 
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="avisoCarrito" class="toast align-items-center text-bg-dark border-0" role="status" aria-live="polite" aria-atomic="true">
