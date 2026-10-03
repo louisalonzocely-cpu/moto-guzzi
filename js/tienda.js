@@ -5,6 +5,9 @@
 // ============================================================
 const botonesFiltro = document.querySelectorAll('.btn-filtro');
 const columnasProducto = document.querySelectorAll('[data-categoria]');
+const modalProducto = document.getElementById('modalProducto');
+
+let productoEnModal = null;
 const carrito = [];
 const formatoPesos = new Intl.NumberFormat('es-CO', {
     style: 'currency',
@@ -96,3 +99,25 @@ document.getElementById('btnFinalizar').addEventListener('click', () => {
 });
 
 document.addEventListener('carrito:cambio', renderCarrito);
+
+modalProducto.addEventListener('show.bs.modal', (evento) => {
+    const boton = evento.relatedTarget;
+    if (!boton) {
+        return;
+    }
+    productoEnModal = {
+        nombre: boton.dataset.nombre,
+        precio: Number(boton.dataset.precio)
+    };
+    const imagen = document.getElementById('modalImagen');
+    imagen.src = boton.dataset.imagen;
+    imagen.alt = boton.dataset.nombre;
+    modalProducto.querySelector('.modal-title').textContent = boton.dataset.nombre;
+    document.getElementById('modalDescripcion').textContent = boton.dataset.descripcion;
+    document.getElementById('modalPrecio').textContent = formatoPesos.format(productoEnModal.precio);
+});
+
+document.getElementById('btnAgregarModal').addEventListener('click', () => {
+    agregarAlCarrito(`${productoEnModal.nombre}`, productoEnModal.precio);
+    bootstrap.Modal.getInstance(modalProducto).hide();
+});
