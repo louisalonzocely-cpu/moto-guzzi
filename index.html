@@ -52,7 +52,9 @@
                       <li class="nav-item"><a href="#preguntas" class="nav-link">Preguntas</a></li>
                       <li class="nav-item"><a href="#suscripcion" class="nav-link">Contacto</a></li>
                   </ul>
-                  <button class="btn btn-outline-dark position-relative" type="button">
+                  <button class="btn btn-outline-dark position-relative" type="button"
+                          data-bs-toggle="offcanvas" data-bs-target="#panelCarrito"
+                          aria-controls="panelCarrito">
                       <i class="bi bi-bag"></i> Carrito
                       <span class="position-absolute top-0 start-100 translate-middle
                             badge rounded-pill text-bg-danger" id="contadorCarrito">0</span>
@@ -174,7 +176,8 @@
                         <p class="card-text text-muted small flex-grow-1">Recorre el mundo.</p>
                         <div class="d-flex justify-content-between align-items-center mt-3">
                         <span class="fw-bold text-primary fs-5">$75.999.000</span>
-                        <a href="#" class="btn btn-sm btn-outline-primary">Comprar</a>
+                        <button type="button" class="btn btn-sm btn-outline-primary btn-agregar"
+                                data-nombre="Guzzi MR800 Adventure" data-precio="75999000">Comprar</button>
                         </div>
                     </div>
                     </div>
@@ -189,7 +192,8 @@
                         <p class="card-text text-muted small flex-grow-1">Desafia las carreteras.</p>
                         <div class="d-flex justify-content-between align-items-center mt-3">
                         <span class="fw-bold text-primary fs-5">$89.999.000</span>
-                        <a href="#" class="btn btn-sm btn-outline-primary">Comprar</a>
+                        <button type="button" class="btn btn-sm btn-outline-primary btn-agregar"
+                                data-nombre="Guzzi GN800 Flash" data-precio="89999000">Comprar</button>
                         </div>
                     </div>
                     </div>
@@ -205,7 +209,8 @@
                             <p class="card-text text-muted small flex-grow-1">Recorre las calles con estilo.</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <span class="fw-bold text-primary fs-5">$165.000.000</span>
-                                <a href="#" class="btn btn-sm btn-outline-primary">Comprar</a>
+                                <button type="button" class="btn btn-sm btn-outline-primary btn-agregar"
+                                        data-nombre="Guzzi G2R100 Streetfighter" data-precio="165000000">Comprar</button>
                             </div>
                         </div>
                     </div>
@@ -221,7 +226,8 @@
                             <p class="card-text text-muted small flex-grow-1">Recorre las calles con estilo.</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <span class="fw-bold text-primary fs-5">$28.000.000</span>
-                                <a href="#" class="btn btn-sm btn-outline-primary">Comprar</a>
+                                <button type="button" class="btn btn-sm btn-outline-primary btn-agregar"
+                                        data-nombre="Guzzi GRR450" data-precio="28000000">Comprar</button>
                             </div>
                         </div>
                     </div>
@@ -237,7 +243,8 @@
                             <p class="card-text text-muted small flex-grow-1">Recorre las calles con estilo.</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <span class="fw-bold text-primary fs-5">$38.000.000</span>
-                                <a href="#" class="btn btn-sm btn-outline-primary">Comprar</a>
+                                <button type="button" class="btn btn-sm btn-outline-primary btn-agregar"
+                                        data-nombre="Guzzi GT450 Himalayan" data-precio="38000000">Comprar</button>
                             </div>
                         </div>
                     </div>
@@ -253,7 +260,8 @@
                             <p class="card-text text-muted small flex-grow-1">Recorre las calles con estilo.</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <span class="fw-bold text-primary fs-5">$208.900.000</span>
-                                <a href="#" class="btn btn-sm btn-outline-primary">Comprar</a>
+                                <button type="button" class="btn btn-sm btn-outline-primary btn-agregar"
+                                        data-nombre="Guzzi GT1200 Adventure" data-precio="208900000">Comprar</button>
                             </div>
                         </div>
                     </div>
@@ -271,6 +279,40 @@
   </main>
 
   <!-- PASO 15: Pie de página -->
+
+
+  <!-- Carrito lateral -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="panelCarrito" aria-labelledby="tituloCarrito">
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title" id="tituloCarrito">Tu carrito</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <p class="text-center text-muted py-5" id="carritoVacio">
+        <i class="bi bi-bag fs-1 d-block mb-2"></i>
+        Tu carrito está vacío
+      </p>
+      <ul class="list-group list-group-flush" id="listaCarrito"></ul>
+      <div class="mt-auto pt-3 border-top d-none" id="resumenCarrito">
+        <div class="d-flex justify-content-between fw-bold fs-5">
+          <span>Total</span>
+          <span id="totalCarrito">$0</span>
+        </div>
+        <button type="button" class="btn btn-coral w-100 mt-3" id="btnFinalizar">
+          Finalizar compra
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="avisoCarrito" class="toast align-items-center text-bg-dark border-0" role="status" aria-live="polite" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">Producto agregado</div>
+                <button type="button" class="btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+            </div>
+        </div>
+  </div>
 
   <!-- Bootstrap 5.3.8 (JavaScript + Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
