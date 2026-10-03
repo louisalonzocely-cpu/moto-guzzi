@@ -121,3 +121,18 @@ document.getElementById('btnAgregarModal').addEventListener('click', () => {
     agregarAlCarrito(`${productoEnModal.nombre}`, productoEnModal.precio);
     bootstrap.Modal.getInstance(modalProducto).hide();
 });
+
+const formSuscripcion = document.getElementById('formSuscripcion');
+
+formSuscripcion.addEventListener('submit', (evento) => {
+  evento.preventDefault(); // no hay servidor: evitamos recargar la página
+
+  if (!formSuscripcion.checkValidity()) {
+    formSuscripcion.classList.add('was-validated'); // Bootstrap pinta los errores
+    return;
+  }
+
+  mostrarAviso('¡Gracias! Te enviaremos nuestras ofertas.');
+  formSuscripcion.reset();
+  formSuscripcion.classList.remove('was-validated');
+});
